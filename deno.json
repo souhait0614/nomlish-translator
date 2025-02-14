@@ -1,0 +1,19 @@
+{
+  "name": "@souhait0614/nomlish-translator",
+  "version": "0.0.1",
+  "exports": "./index.ts",
+  "imports": {
+    "cross-fetch": "npm:cross-fetch@^4.1.0",
+    "fetch-cookie": "npm:fetch-cookie@^3.1.0"
+  },
+  "tasks": {
+    "pretest-build": "deno run --allow-env --allow-read --allow-write --allow-run --allow-net scripts/pretest-build-packages.ts"
+  },
+  "publish": {
+    "include": [
+      "index.ts",
+      "src",
+      "README.md"
+    ]
+  }
+}

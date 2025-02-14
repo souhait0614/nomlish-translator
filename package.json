@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "prepare": "deno run pretest-build",
+    "test:node": "vitest --run --config ./runtime-tests/node/vitest.config.ts",
+    "test:bun": "vitest --run --config ./runtime-tests/bun/vitest.config.ts"
+  },
+  "dependencies": {
+    "@types/node": "^22.13.4"
+  },
+  "devDependencies": {
+    "vitest": "^3.0.5"
+  }
+}

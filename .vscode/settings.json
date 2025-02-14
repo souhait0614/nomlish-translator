@@ -1,0 +1,9 @@
+{
+  "deno.enablePaths": ["index.ts", "src", "scripts", "runtime-tests/deno"],
+  "deno.lint": true,
+  "editor.defaultFormatter": "denoland.vscode-deno",
+  "editor.formatOnSave": true,
+  "cSpell.words": [
+    "Nomlish"
+  ]
+}
