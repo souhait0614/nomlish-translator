@@ -1,9 +1,9 @@
 {
   "name": "@souhait0614/nomlish-translator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "exports": "./index.ts",
   "publish": {
-    "include": ["README.md", "index.ts", "src/**/*.ts"]
+    "include": ["package.json", "README.md", "index.ts", "src/**/*.ts"]
   },
   "test": {
     "include": ["./runtime-tests/deno"]
