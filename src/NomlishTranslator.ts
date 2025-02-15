@@ -54,9 +54,8 @@ export class NomlishTranslator {
     if (html.includes("CSRF check failed")) {
       throw new Error("CSRF check failed");
     }
-    const output = html.match(
-      /<textarea.*name="after1".*?>([\S\s]*?)<\/textarea>/,
-    )
+    const output = html
+      .match(/<textarea.*name="after1".*?>([\S\s]*?)<\/textarea>/)
       ?.at(1);
     if (!output) throw new Error("Failed to get output");
     return output;

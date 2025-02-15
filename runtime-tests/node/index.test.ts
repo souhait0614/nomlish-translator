@@ -1,8 +1,8 @@
+import { setTimeout } from "node:timers/promises";
 import { assert, test } from "vitest";
 import { NomlishTranslator } from "../../index.ts";
-import { setTimeout } from "node:timers/promises";
 
-const testText = `吾輩は猫である。名前はまだ無い。`;
+const testText = "吾輩は猫である。名前はまだ無い。";
 
 test("single translate", async () => {
   const translator = new NomlishTranslator();

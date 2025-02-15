@@ -1,13 +1,23 @@
 {
+  "name": "nomlish-translator",
+  "module": "index.ts",
+  "type": "module",
   "scripts": {
-    "prepare": "deno run pretest-build",
+    "lint": "biome check",
+    "format": "biome check --write",
     "test:node": "vitest --run --config ./runtime-tests/node/vitest.config.ts",
     "test:bun": "vitest --run --config ./runtime-tests/bun/vitest.config.ts"
   },
-  "dependencies": {
-    "@types/node": "^22.13.4"
-  },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest",
     "vitest": "^3.0.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "cross-fetch": "^4.1.0",
+    "fetch-cookie": "^3.1.0"
   }
 }

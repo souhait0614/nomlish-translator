@@ -2,7 +2,7 @@ import { assertExists } from "jsr:@std/assert";
 import { delay } from "jsr:@std/async";
 import { NomlishTranslator } from "../../index.ts";
 
-const testText = `吾輩は猫である。名前はまだ無い。`;
+const testText = "吾輩は猫である。名前はまだ無い。";
 
 Deno.test("single translate", async () => {
   const translator = new NomlishTranslator();
