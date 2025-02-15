@@ -15,5 +15,10 @@ see <https://jsr.io/@souhait0614/nomlish-translator>
 ```shell
 git clone https://github.com/souhait0614/nomlish-translator.git
 cd nomlish-translator
-deno test --allow-net
+bun install
+bun test:bun
 ```
+
+## Thanks
+
+- ノムリッシュ翻訳 (<https://racing-lagoon.info/nomu/translate.php>)
