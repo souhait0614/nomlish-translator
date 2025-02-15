@@ -35,21 +35,28 @@ export class NomlishTranslator {
     return token;
   };
 
-  #translate = async (input: string) => {
+  #translate = async (
+    input: string,
+    overrideParams?: Partial<TranslateParams>,
+  ) => {
+    const params = {
+      ...this.#params,
+      ...overrideParams,
+    };
     const token = await this.#token;
-    const params = new URLSearchParams({
+    const fetchParams = new URLSearchParams({
       before: input,
-      level: this.#params.level.toString(),
-      options: this.#params.options,
+      level: params.level.toString(),
+      options: params.options,
       token,
       transbtn: "",
     });
-    const html = await fetch(this.#params.siteUrl, {
+    const html = await fetch(params.siteUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: params.toString(),
+      body: fetchParams.toString(),
     }).then(getText);
     if (html.includes("CSRF check failed")) {
       throw new Error("CSRF check failed");
@@ -61,14 +68,17 @@ export class NomlishTranslator {
     return output;
   };
 
-  translate = async (input: string): Promise<string> => {
+  translate = async (
+    input: string,
+    overrideParams?: Partial<TranslateParams>,
+  ): Promise<string> => {
     try {
-      const output = await this.#translate(input);
+      const output = await this.#translate(input, overrideParams);
       return output;
     } catch (e) {
       if (e instanceof Error && e.message === "CSRF check failed") {
         this.#token = this.#getToken();
-        const output = await this.#translate(input);
+        const output = await this.#translate(input, overrideParams);
         return output;
       }
       throw e;
